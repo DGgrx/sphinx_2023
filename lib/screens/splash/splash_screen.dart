@@ -37,8 +37,11 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             Align(
               alignment: AlignmentDirectional.center,
-              child: Image.asset("assets/sphinx_logo.png",
-              height: 120,),
+              child: RotatedBox(
+                quarterTurns: 1,
+                child: Image.asset("assets/splash.gif",
+                height: 120,),
+              ),
             ),
             Positioned(
                 top: -100,

@@ -7,6 +7,7 @@ class SplashVM extends ChangeNotifier {
   // final DataStore store;
   // final UserProv userProv;
   // final AuthRepo authRepo;
+
   final SplashRepo splashRepo;
 
 

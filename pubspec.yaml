@@ -40,6 +40,12 @@ dependencies:
   sign_in_button: ^3.2.0
   carousel_slider: ^4.2.1
   http: ^1.1.0
+  syncfusion_flutter_calendar: ^23.1.42
+  webview_flutter: ^4.4.1
+  qr_flutter: ^4.1.0
+  google_sign_in: ^6.1.5
+  flutter_dotenv: ^5.1.0
+  fluttertoast: ^8.2.2
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +71,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - .env
     - assets/
     - assets/icons/
 
@@ -84,7 +91,13 @@ flutter:
    - family: Rog
      fonts:
        - asset: assets/fonts/ROG.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
+   - family: Poppins
+     fonts:
+       - asset: assets/fonts/Poppins-Regular.ttf
+   - family: Poppins-Black
+     fonts:
+       - asset: assets/fonts/Poppins-Black.ttf
+#        - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:
