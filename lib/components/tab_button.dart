@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../theme/color_def.dart';
 
 class TabButton extends StatelessWidget {
-   TabButton({
+   const TabButton({
     Key? key,
     required this.callback,
     required this.title,

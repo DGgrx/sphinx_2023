@@ -19,13 +19,13 @@ class CardTile extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(10,8,10,0),
           child: Text(label,
-            style: TextStyle(
+            style: const TextStyle(
                 fontSize: 10,
                 color: Colors.white
             ),),
         ),
         Card(
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
           color: const Color(0xff2C2C2C),

@@ -28,7 +28,7 @@ class AppProviders extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => SplashVM(SplashRepo())),
         ChangeNotifierProvider(create: (_) => CalenderVm()),
-        ChangeNotifierProvider(create: (_)=> LoginVm(loginRepo: LoginRepo())),
+        ChangeNotifierProvider(create: (_)=> LoginVm(loginRepo: LoginRepo(),splashRepo: SplashRepo())),
         ChangeNotifierProvider(create: (_)=> ProfileVm()),
       ],
       child: child,

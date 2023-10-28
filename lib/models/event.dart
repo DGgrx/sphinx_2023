@@ -63,8 +63,9 @@ class Event {
         coordinators!.add(v);
       });
     }
-    if (json['admin'] != null)
-    admin = Admin.fromJson(json['admin']);
+    if (json['admin'] != null) {
+      admin = Admin.fromJson(json['admin']);
+    }
 
     if (json['updates'] != null) {
       updates = <Updates>[];

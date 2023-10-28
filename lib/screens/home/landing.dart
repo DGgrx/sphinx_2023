@@ -1,17 +1,13 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:sphinx_2023/screens/calender/calender_screen.dart';
 import 'package:sphinx_2023/screens/home/home.dart';
 import 'package:sphinx_2023/screens/profile/profile_screen.dart';
 import 'package:sphinx_2023/screens/search/event_details/event_detail_screen.dart';
 import 'package:sphinx_2023/theme/color_def.dart';
 
-import '../splash/view_model/splash_vm.dart';
 
 class Landing extends StatefulWidget {
-  Landing({super.key});
+  const Landing({super.key});
 
   @override
   State<Landing> createState() => _LandingState();
@@ -60,7 +56,7 @@ class _LandingState extends State<Landing> with TickerProviderStateMixin{
             child: Image.asset("assets/icons/bell.png",
             height: 30,),
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           )
           // ImageIcon(
@@ -72,7 +68,7 @@ class _LandingState extends State<Landing> with TickerProviderStateMixin{
       body: TabBarView(
         physics: const NeverScrollableScrollPhysics(),
         controller: _tabController,
-        children: [
+        children: const [
           HomeScreen(),
           EventDetail(),
           CalenderScreen(),
@@ -83,18 +79,18 @@ class _LandingState extends State<Landing> with TickerProviderStateMixin{
 
       bottomNavigationBar: Container(
         decoration:
-            BoxDecoration(border: Border(top: BorderSide(color: Colors.white))),
+            const BoxDecoration(border: Border(top: BorderSide(color: Colors.white))),
         child: TabBar(
           controller: _tabController,
           labelColor: selectedYellow,
           unselectedLabelColor: unselectedYellow,
           labelPadding: EdgeInsets.zero,
-          padding: EdgeInsets.all(10),
-          indicator: UnderlineTabIndicator(
+          padding: const EdgeInsets.all(10),
+          indicator: const UnderlineTabIndicator(
             borderSide: BorderSide(color: selectedYellow, width: 7.0),
             insets: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 55.0),
           ),
-          tabs: [
+          tabs: const [
             Tab(
               iconMargin: EdgeInsets.zero,
               icon: ImageIcon(

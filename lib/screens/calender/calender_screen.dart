@@ -1,11 +1,9 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sphinx_2023/screens/calender/view_model/calender_vm.dart';
-import 'package:sphinx_2023/screens/splash/view_model/splash_vm.dart';
+import 'package:sphinx_2023/screens/login/view_model/login_vm.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'package:intl/intl.dart';
-import '../../theme/color_def.dart';
 
 class CalenderScreen extends StatefulWidget {
   const CalenderScreen({Key? key}) : super(key: key);
@@ -22,11 +20,11 @@ class CalenderScreenState extends State<CalenderScreen> {
   @override
   Widget build(BuildContext context) {
     CalenderVm calenderVm = Provider.of<CalenderVm>(context, listen: false);
-    SplashVM splashVM = Provider.of<SplashVM>(context, listen: false);
-    calenderVm.addResourceDetails(splashVM.events);
+    LoginVm loginVM = Provider.of<LoginVm>(context, listen: false);
+    calenderVm.addResourceDetails(loginVM.events);
     calenderVm.addResources();
     calenderVm.addAppointmentDetails();
-    calenderVm.addAppointments(splashVM.events);
+    calenderVm.addAppointments(loginVM.events);
     // _events =
     //     _DataSource(calenderVm.shiftCollection, calenderVm.employeeCollection);
     return SafeArea(
@@ -80,7 +78,7 @@ class CalenderScreenState extends State<CalenderScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 3,),
+            const SizedBox(height: 3,),
             Flexible(
               child: Text(
                 '${appointment.subject}${DateFormat(' (hh:mm a').format(appointment.startTime)}-${DateFormat('hh:mm a)').format(appointment.endTime)}',

@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
@@ -137,7 +138,7 @@ class ProfileScreen extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: 32.0, vertical: 0),
               child:
-                  CustomButton(callback: () {}, title: "Logout".toUpperCase()),
+                  CustomButton(callback: () {loginVm.logout();}, title: "Logout".toUpperCase()),
             ),
             const SizedBox(
               height: 30,

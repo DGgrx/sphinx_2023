@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:sphinx_2023/screens/splash/view_model/splash_vm.dart';
+
+import '../../common/navigator.dart';
+import '../../common/routing.dart';
 
 // import '/components/gradient.dart';
 // import '/screens/onboarding/splash/viewModel/splashVm.dart';
@@ -17,9 +18,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    var splashVm = Provider.of<SplashVM>(context, listen: false);
-    splashVm.getEvents();
-    // Timer(Duration(seconds: 4), () => splashVm.isLogged(context));
+    Timer(
+        const Duration(seconds: 5),
+        () => Navigator.of(NavigationService.navigatorKey.currentContext!,
+                rootNavigator: true)
+            .pushReplacement(Routes.loginScreen()));
   }
 
   @override
@@ -39,8 +42,10 @@ class _SplashScreenState extends State<SplashScreen> {
               alignment: AlignmentDirectional.center,
               child: RotatedBox(
                 quarterTurns: 1,
-                child: Image.asset("assets/splash.gif",
-                height: 120,),
+                child: Image.asset(
+                  "assets/splash.gif",
+                  height: 120,
+                ),
               ),
             ),
             Positioned(
@@ -63,6 +68,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ],
         ),
       ),
-    );;
+    );
+
   }
 }

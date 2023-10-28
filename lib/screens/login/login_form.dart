@@ -3,9 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:sphinx_2023/common/sphinx_loader.dart';
 import 'package:sphinx_2023/screens/login/register.dart';
 import 'package:sphinx_2023/screens/login/view_model/login_vm.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 import '../../components/custom_button.dart';
-import '../../theme/color_def.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -22,7 +20,7 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return Consumer<LoginVm>(builder: (context, loginVm, _) {
       return loginVm.isLoading
-          ? LoadingScreen()
+          ? const LoadingScreen()
           : Padding(
               padding: const EdgeInsets.all(42.0),
               child: Column(
@@ -73,17 +71,28 @@ class _LoginFormState extends State<LoginForm> {
                     height: 2,
                   ),
                   TextField(
+                    obscureText: loginVm.togglePass,
                     style: const TextStyle(color: Colors.white),
                     controller: passwordCon,
                     cursorColor: Colors.white,
-                    decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    decoration:  InputDecoration(
+                      contentPadding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                       focusColor: Colors.white,
-                      focusedBorder: UnderlineInputBorder(
+                      focusedBorder: const UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.white)),
-                      enabledBorder: UnderlineInputBorder(
+                      enabledBorder: const UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.white)),
+                      suffixIcon: IconButton(
+                        icon: ImageIcon(
+                          const AssetImage('assets/icons/eye.png'),
+                          color:
+                          loginVm.togglePass ? Colors.grey : Colors.white,
+                        ),
+                        onPressed: loginVm.togglePassW,
+                      ),
                     ),
+
+
                   ),
                   const SizedBox(
                     height: 30,
@@ -91,8 +100,9 @@ class _LoginFormState extends State<LoginForm> {
                   CustomButton(
                     title: "Login",
                     callback: () {
-                      print(usernameCon.text);
-                      print(passwordCon.text);
+                      // print(usernameCon.text);
+                      // print(passwordCon.text);
+                      // homeVm.getEvents();
                       loginVm.login(
                           email: usernameCon.text, password: passwordCon.text);
                     },

@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
@@ -83,15 +82,14 @@ class CalenderVm extends ChangeNotifier {
     // print(events);
     shiftCollection = <Appointment>[];
 
-    print(events[0].category);
-    events.forEach(
-        (e){
-          if(catogoricalList[e.category]==null)
+    // print(events[0].category);
+    for (var e in events) {
+          if(catogoricalList[e.category]==null) {
             catogoricalList[e.category!] = <Event>[];
+          }
           catogoricalList[e.category]?.add(e);
         }
-    );
-    print(catogoricalList);
+    // print(catogoricalList);
 
 
 

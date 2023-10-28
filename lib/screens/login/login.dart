@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:sphinx_2023/screens/login/view_model/login_vm.dart';
 
 import 'login_form.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +17,11 @@ class LoginScreen extends StatelessWidget {
         }
       },
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.black,
         body: Stack(
           children: [
-            Align(
+            const Align(
               alignment: AlignmentDirectional.center,
               child: LoginForm(),
             ),

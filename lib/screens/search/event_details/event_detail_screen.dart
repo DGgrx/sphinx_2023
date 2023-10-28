@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:sphinx_2023/screens/splash/view_model/splash_vm.dart';
+import 'package:sphinx_2023/screens/login/view_model/login_vm.dart';
 
 import '../../../theme/color_def.dart';
 
@@ -10,18 +10,18 @@ class EventDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<SplashVM>(builder: (context, splashVm, _) {
-      var event = splashVm.events[0];
-      var eventUrl = splashVm.events[0].imageUrl;
+    return Consumer<LoginVm>(builder: (context, loginVm, _) {
+      var event = loginVm.events[0];
+      var eventUrl = loginVm.events[0].imageUrl;
 
       return SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height:30),
+            const SizedBox(height:30),
             Text(
               "Workshops".toUpperCase(),
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 color: buttonYellow,
                 fontFamily: "Rog",
                 shadows: [
@@ -35,18 +35,18 @@ class EventDetail extends StatelessWidget {
                 fontSize: 15,
               ),
             ),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
               child: CachedNetworkImage(imageUrl: eventUrl!,
               height: 300,),
             ),
-            SizedBox(height: 25,),
+            const SizedBox(height: 25,),
 
             Text(
               event.name!.toUpperCase(),
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: const TextStyle(
                 color: buttonYellow,
                 fontFamily: "Rog",
                 shadows: [
@@ -60,13 +60,13 @@ class EventDetail extends StatelessWidget {
                 fontSize: 22,
               ),
             ),
-            SizedBox(height: 15,),
+            const SizedBox(height: 15,),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 30.0),
               child: Text(
                 event.description!,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontFamily: "Poppins",
 
@@ -83,7 +83,7 @@ class EventDetail extends StatelessWidget {
               ),
             ),
             TextButton(onPressed: (){},
-                child: Text(
+                child: const Text(
                   "View Rulebook",
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -115,13 +115,13 @@ class EventDetail extends StatelessWidget {
                         color: buttonYellow.withOpacity(0.6),
                         spreadRadius: 2,
                         blurRadius: 15,
-                        offset: Offset(0, 3),
+                        offset: const Offset(0, 3),
                       )
                     ]),
                 child: Center(
                   child: GestureDetector(
                     onTap: () {},
-                    child: Text(
+                    child: const Text(
                       '\$ 150',
                       textAlign: TextAlign.left,
                       style: TextStyle(

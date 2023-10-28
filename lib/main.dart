@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:sphinx_2023/common/sphinx_loader.dart';
-import 'package:sphinx_2023/screens/home/landing.dart';
-import 'package:sphinx_2023/screens/login/login.dart';
-import 'package:sphinx_2023/screens/login/register.dart';
 import 'package:sphinx_2023/screens/splash/splash_screen.dart';
 
 import 'app_providers.dart';
@@ -14,7 +9,7 @@ import 'common/navigator.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await dotenv.load(fileName: ".env");
+  // await dotenv.load(fileName: ".env");
   // await Firebase.initializeApp();
   // await FlutterNotificationChannel.registerNotificationChannel(
   //     description: 'For Showing Message Notification',
@@ -37,7 +32,7 @@ Future<void> main() async {
   // UserProv userProv = UserProv(dataStore: store);
 
   // print('User granted permission: ${settings.authorizationStatus}');
-  runApp(MyApp(
+  runApp(const MyApp(
     // store: store,
     // userProv: userProv,
   ));
@@ -47,6 +42,7 @@ class MyApp extends StatelessWidget {
   // final SharedPreferences prefs;
   // final DataStore store;
   // final UserProv userProv;
+  // final db = Localstore.instance;
 
   const MyApp({
     super.key,
@@ -67,7 +63,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Poppins',
           primarySwatch: Colors.blue,
         ),
-        home: LoginScreen(),
+        home: const SplashScreen(),
       ),
     );
   }

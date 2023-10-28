@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 
-import "../../../models/event.dart";
 import "../repo/splash_repo.dart";
 
 class SplashVM extends ChangeNotifier {
@@ -18,7 +17,7 @@ class SplashVM extends ChangeNotifier {
       // }
       );
 
-  List<Event> events = [];
+
 
 
 
@@ -27,10 +26,7 @@ class SplashVM extends ChangeNotifier {
     // String? data = store.getString(param);
     // return data.toString();
   }
-  Future<void> getEvents() async {
-    events = await splashRepo.fetchEvents();
-    notifyListeners();
-  }
+
 
   Future<void> isLogged(BuildContext context) async {
     // String? logged = store.getString('loggedIn');
