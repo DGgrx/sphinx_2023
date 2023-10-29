@@ -7,11 +7,13 @@ class TabButton extends StatelessWidget {
     required this.callback,
     required this.title,
     required this.inFocus,
+     this.textPad
   }) : super(key: key);
 
   final VoidCallback callback;
   final String title;
   final bool inFocus;
+  final double? textPad;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class TabButton extends StatelessWidget {
             ),
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:  EdgeInsets.symmetric(vertical: 8,horizontal: textPad ??8),
             child: Text(
               title,
               textAlign: TextAlign.left,

@@ -1,118 +1,205 @@
-
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
+import '../../../models/calender.dart';
 import '../../../models/event.dart';
 
 class CalenderVm extends ChangeNotifier {
-  final List<String> subjectCollection = <String>[];
-  final List<Color> colorCollection = <Color>[];
-  List<Appointment> shiftCollection = <Appointment>[];
-  final List<CalendarResource> categoryCollection = <CalendarResource>[];
-  final List<String> nameCollection = <String>[];
-  final List<Color> resourceColorCollection = <Color>[];
 
-  Map<String, Color> resourceCollection = {
-    'Flasgship': const Color(0xff5CE1E6),
-    'Club': const Color(0xff9EDDFF),
-    'Workshops': const Color(0xffD0EEFF),
-    'Conclave': const Color(0xff5EFFC0),
-    'Department': const Color(0xff5EC7FF),
-    'Fairs/Exhibitions': const Color(0xffAF9FFD),
-    'Fun Activities': const Color(0xffD5B8FF),
-    'Cultural': const Color(0xffAF9FFD),
+  List<Appointment> shiftCollection = <Appointment>[];
+  List<CalendarResource> categoryCollection = <CalendarResource>[];
+
+
+  static const Map<String, Color> resourceCollection = {
+    'Flagship': Color(0xff5CE1E6),
+    'Club': Color(0xff9EDDFF),
+    'Workshops': Color(0xffD0EEFF),
+    'Conclave': Color(0xff5EFFC0),
+    'Department': Color(0xff5EC7FF),
+    'Fairs/Exhibitions': Color(0xffAF9FFD),
+    'Fun Activities': Color(0xffD5B8FF),
+    'Cultural': Color(0xffAF9FFD),
   };
 
-  void addResourceDetails(List<Event> events) {
-    nameCollection.add('Flasgship');
-    nameCollection.add('Club');
-    nameCollection.add('Workshops');
-    nameCollection.add('Conclave');
-    nameCollection.add('Department');
-    nameCollection.add('Fairs/Exhibitions');
-    nameCollection.add('Fun Activities');
-    nameCollection.add('Cultural');
+  static const Map<String, String> categories = {
+    "flagship": 'Flagship',
+    "club": 'Club',
+    "workshops": 'Workshops',
+    "conclave": 'Conclave',
+    "department": 'Department',
+    "fairsexhibitions": 'Fairs/Exhibitions',
+    "funactivities": 'Fun Activities',
+    "cultural": 'Cultural',
+  };
 
-    resourceColorCollection.add(const Color(0xff5CE1E6));
-    resourceColorCollection.add(const Color(0xff9EDDFF));
-    resourceColorCollection.add(const Color(0xffD0EEFF));
-    resourceColorCollection.add(const Color(0xff5EFFC0));
-    resourceColorCollection.add(const Color(0xff5EC7FF));
-    resourceColorCollection.add(const Color(0xffAF9FFD));
-    resourceColorCollection.add(const Color(0xffD5B8FF));
-    resourceColorCollection.add(const Color(0xffAF9FFD));
-    resourceColorCollection.add(const Color(0xffF8B6ED));
+  List<EventData> data = [];
+
+  late EventData day1;
+  late EventData day2;
+  late EventData day3;
+
+
+  void setData(List<EventData> val) {
+    data = val;
+    // print(val);
+    day1 = val[0];
+    day2 = val[1];
+    day3 = val[2];
+    addResources();
+    addAppointments();
   }
 
   void addResources() {
-    for (int i = 0; i < nameCollection.length; i++) {
-      categoryCollection.add(
-        CalendarResource(
-          displayName: nameCollection[i],
-          id: '000$i',
-          color: resourceColorCollection[i],
-        ),
-      );
+    int i = 0;
+    categoryCollection = [];
+    for (var value in categories.values) {
+      categoryCollection.add(CalendarResource(
+          displayName: value, id: '000$i', color: resourceCollection[value]!));
+      i++;
     }
   }
 
-  void addAppointmentDetails() {
-    subjectCollection.add('General Meeting');
-    subjectCollection.add('Plan Execution');
-    subjectCollection.add('Project Plan');
-    subjectCollection.add('Consulting');
-    subjectCollection.add('Support');
-    subjectCollection.add('Development Meeting');
-    subjectCollection.add('Scrum');
-    subjectCollection.add('Project Completion');
-    subjectCollection.add('Release updates');
+  DateTime viewDate = DateTime(2023, 11, 3);
 
-    colorCollection.add(const Color(0xff5CE1E6));
-    colorCollection.add(const Color(0xff9EDDFF));
-    colorCollection.add(const Color(0xffD0EEFF));
-    colorCollection.add(const Color(0xff5EFFC0));
-    colorCollection.add(const Color(0xff5EC7FF));
-    colorCollection.add(const Color(0xffAF9FFD));
-    colorCollection.add(const Color(0xffD5B8FF));
-    colorCollection.add(const Color(0xffAF9FFD));
+  void setViewDate(var val) {
+    viewDate = val;
+    notifyListeners();
   }
-  Map<String, List<Event>> catogoricalList = {};
-  void addAppointments(List<Event> events) {
 
-    // print(events);
+  int index = 0;
+
+  void setIndex(int val) {
+    index = val;
+    notifyListeners();
+  }
+
+
+  void addAppointments() {
+
     shiftCollection = <Appointment>[];
 
-    // print(events[0].category);
-    for (var e in events) {
-          if(catogoricalList[e.category]==null) {
-            catogoricalList[e.category!] = <Event>[];
-          }
-          catogoricalList[e.category]?.add(e);
-        }
-    // print(catogoricalList);
+    for(int i =0;i<3;i++) {
+      data[i].flasgship?.forEach((element) {
+        shiftCollection.add(Appointment(
+          startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.startTime!))),),
+          endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.endTime!)))),
+          subject: element.name!,
+          notes: element.organiser,
+          color: resourceCollection["Flagship"]!,
+          id: '0000',
+            resourceIds: ['0000']
+        ));
+      });
+      //
+      data[i].club?.forEach((element) {
+        shiftCollection.add(Appointment(
+          startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.startTime!))),),
+          endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.endTime!)))),
+          subject: element.name!,
+          notes: element.organiser,
+          color: resourceCollection["Club"]!,
+          id: '0001',
+          resourceIds: ['0001']
 
+        ));
+      });
 
+      data[i].workshops?.forEach((element) {
+        shiftCollection.add(Appointment(
+          startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.startTime!))),),
+          endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.endTime!)))),
+          subject: element.name!,
+          notes: element.organiser,
+          color: resourceCollection["Workshops"]!,
+          id: '0002',
+          resourceIds: ['0002']
 
+        ));
+      });
+      data[i].concalve?.forEach((element) {
+        shiftCollection.add(Appointment(
+          startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.startTime!))),),
+          endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.endTime!)))),
+          subject: element.name!,
+          notes: element.organiser,
+          color: resourceCollection["Conclave"]!,
+          id: '0003',
+          resourceIds: ['0003']
 
+        ));
+      });
 
+      data[i].department?.forEach((element) {
+        shiftCollection.add(Appointment(
+          startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.startTime!))),),
+          endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.endTime!)))),
+          subject: element.name!,
+          notes: element.organiser,
+          color: resourceCollection["Department"]!,
+          id: '0004',
+          resourceIds: ['0004']
 
-    // events.map((e) {
-    //   print(e.category!);
-    //   if(catogoricalList[e.category!.toString()]?.length == 0)
-    //   catogoricalList[e.category!.toString()] = [];
-    //   catogoricalList[e.category!.toString()]?.add(e);
-    // }
-    // );
-    // print(catogoricalList);
-    //
-    //   shiftCollection.add(Appointment(
-    //       startTime: shiftStartTime,
-    //       endTime: shiftStartTime.add(const Duration(hours: 3)),
-    //       subject: subjectCollection[random.nextInt(8)],
-    //       color: colorCollection[random.nextInt(8)],
-    //       startTimeZone: '',
-    //       endTimeZone: '',
-    //       resourceIds: _employeeIds));
-    // }
+        ));
+      });
+
+      data[i].fairsexhibitions?.forEach((element) {
+        shiftCollection.add(Appointment(
+          startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.startTime!))),),
+          endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.endTime!)))),
+          subject: element.name!,
+          notes: element.organiser,
+          color: resourceCollection["Fairs/Exhibitions"]!,
+          id: '0005',
+          resourceIds: ['0005']
+
+        ));
+      });
+
+      data[i].funactivities?.forEach((element) {
+        shiftCollection.add(Appointment(
+          startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.startTime!))),),
+          endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.endTime!)))),
+          subject: element.name!,
+          notes: element.organiser,
+          color: resourceCollection["Fun Activities"]!,
+          id: '0006',
+          resourceIds: ['0006']
+
+        ));
+      });
+
+      data[i].cultural?.forEach((element) {
+
+        shiftCollection.add(Appointment(
+          startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.startTime!))),),
+          endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.endTime!)))),
+          subject: element.name!,
+          notes: element.organiser,
+          color: resourceCollection["Cultural"]!,
+          id: '0007',
+          resourceIds: ['0007']
+        ));
+      });
+    }
+
+    print(shiftCollection);
+
   }
 }

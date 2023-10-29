@@ -1,0 +1,161 @@
+{
+  "FLAGSHIP": [
+    {
+      "name": " 24 HOUR - HACKATHON",
+      "startTime": "10:00",
+      "endTime": "22:00",
+      "organiser":
+      "Infosec & computer science club"
+    },
+    {
+      "name": " E-SPORTS",
+      "startTime": "12:00",
+      "endTime": "18:30",
+      "organiser": ""
+    }
+  ],
+  "CLUB": [
+    {
+      "name": "24-HOUR WEB 3 HACKATHON",
+      "startTime": "09:00",
+      "endTime": "13:00",
+      "organiser": " Infosec & Computer Science Club"
+    },
+    {
+      "name": " IDEA-IGNITE",
+      "startTime": "12:00",
+      "endTime": "14:00",
+      "organiser": " Entreprenuership Club"
+    },
+    {
+      "name": "ACTIVE-LEARNER",
+      "startTime": "14:00",
+      "endTime": "17:30",
+      "organiser":
+      "Data Science Club"
+    },
+    {
+      "name": "RUBE-A-THON",
+      "startTime": "13:00",
+      "endTime": "16:30",
+      "organiser":
+      " Tinkering Club"
+    }
+
+  ],
+  "DEPARTMENT": [
+    {
+      "name": " ED-CELL EVENT",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "organiser": "ED-Cell"
+    },
+    {
+      "name": "ETCH-FACTOR",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "organiser": "Metallurgy Departement"
+    },
+    {
+      "name": "NANO PHOTOGRAPHY",
+      "startTime": "12:00",
+      "endTime": "14:00",
+      "organiser": "Material Research Center"
+    },
+    {
+      "name": "AD-FRENZY",
+      "startTime": "12:00",
+      "endTime": "14:00",
+      "organiser": "MBA Department"
+    },
+    {
+      "name": "MNIT ON A CIRCUIT",
+      "startTime": "14:00",
+      "endTime": "17:30",
+      "organiser": "Electrical Department"
+    },
+    {
+      "name": "SHAKUNTALA DEVI QUIZ",
+      "startTime": "15:00",
+      "endTime": "17:30",
+      "organiser": "Mathematics Depatment"
+    }
+  ],
+  "WORKSHOPS": [
+    {
+      "name": "ZERO TO LINKDEN",
+      "startTime": "09:00",
+      "endTime": "12:00",
+      "organiser":
+      "Computer Science Club"
+    },
+    {
+      "name": "PORTFOLIO BUILDING",
+      "startTime": "09:00",
+      "endTime": "12:00",
+      "organiser": "PORTFOLIO BUILDING"
+    },
+    {
+      "name": "FORMULA NANO",
+      "startTime": "09:00",
+      "endTime": "13:00",
+      "organiser": "Zine Robotics & Research group"
+    }
+  ],
+  "CONCLAVE": [
+    {
+      "name": "STUDENT RESEARCH CONCLAVE",
+      "startTime": "09:00",
+      "endTime": "17:00",
+      "organiser": ""
+    }
+  ],
+  "FUN ACTIVITIES": [
+    {
+      "name": "ROOM OF NOSTALGIA | AMONG US | GO KARTING",
+      "startTime": "10:00",
+      "endTime": "19:00",
+      "organiser": "SPHINX"
+    }
+  ],
+  "CULTURAL": [
+    {
+      "name": "TECH-TALK",
+      "startTime": "17:00",
+      "endTime": "19:00",
+      "organiser": ""
+    },
+    {
+      "name": "Pronite",
+      "startTime": "19:00",
+      "endTime": "22:00",
+      "organiser": ""
+    }
+  ],
+  "FAIRS/EXHIBITIONS": [
+    {
+      "name": "CHANDRAYAN EXHIBIT",
+      "startTime": "11:00",
+      "endTime": "16:00",
+      "organiser": " Physics Department"
+    },
+    {
+      "name": "CHEMICAL DISASTER EXHIBIT",
+      "startTime": "11:00",
+      "endTime": "16:00",
+      "organiser": "Chemistry Department"
+    },
+    {
+      "name": "DISASTER MITIGATION & MANAGEMENT EXHIBIT",
+      "startTime": "11:00",
+      "endTime": "16:00",
+      "organiser": "National Centre for Disaster Mitigation & Management"
+    },
+    {
+      "name": "CAREER FAIR | START-UP EXPO ",
+      "startTime": "10:00",
+      "endTime": "17:00",
+      "organiser": "SPHINX"
+    }
+  ]
+}

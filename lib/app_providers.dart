@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sphinx_2023/models/calender.dart';
+import 'package:sphinx_2023/providers/calendar_data.dart';
 import 'package:sphinx_2023/screens/calender/view_model/calender_vm.dart';
 import 'package:sphinx_2023/screens/login/repo/login_repo.dart';
 import 'package:sphinx_2023/screens/login/view_model/login_vm.dart';
@@ -13,23 +15,25 @@ class AppProviders extends StatelessWidget {
   // final Language language;
   // final DataStore store;
   // final UserProv userProv;
+  final CalendarDataProv calendarData;
 
   const AppProviders({
     // required this.language,
     // required this.store,
     Key? key,
     required this.child,
-    // required this.userProv,
+    required this.calendarData,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => SplashVM(SplashRepo())),
-        ChangeNotifierProvider(create: (_) => CalenderVm()),
-        ChangeNotifierProvider(create: (_)=> LoginVm(loginRepo: LoginRepo(),splashRepo: SplashRepo())),
-        ChangeNotifierProvider(create: (_)=> ProfileVm()),
+        ChangeNotifierProvider<SplashVM>(create: (_) => SplashVM(SplashRepo())),
+        ChangeNotifierProvider<CalenderVm>(create: (_) => CalenderVm()),
+        ChangeNotifierProvider<LoginVm>(create: (_)=> LoginVm(loginRepo: LoginRepo(),splashRepo: SplashRepo())),
+        ChangeNotifierProvider<ProfileVm>(create: (_)=> ProfileVm()),
+        ChangeNotifierProvider<CalendarDataProv>(create: (_)=>calendarData),
       ],
       child: child,
     );

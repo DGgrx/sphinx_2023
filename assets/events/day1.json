@@ -1,0 +1,136 @@
+{
+  "FLAGSHIP": [
+    {
+      "name": "Treasure Hunt",
+      "startTime": "11:00",
+      "endTime": "14:00",
+      "organiser": ""
+    },
+    {
+      "name": "Crisis Resolution",
+      "startTime": "15:00",
+      "endTime": "17:00",
+      "organiser": ""
+    }
+  ],
+  "CLUB": [
+    {
+      "name": "Aeroquest",
+      "startTime": "09:00",
+      "endTime": "13:00",
+      "organiser": "Aeromodelling Club"
+    },
+    {
+      "name": "Product-verse",
+      "startTime": "14:00",
+      "endTime": "16:00",
+      "organiser": "Consultancy Club"
+    },
+    {
+      "name": "Judgment-day",
+      "startTime": "16:00",
+      "endTime": "18:00",
+      "organiser": "Technical Communication House"
+    },
+    {
+      "name": "24-hour web3 hackathon",
+      "startTime": "10:00",
+      "endTime": "22:00",
+      "organiser": "Infosec & computer science club"
+    }
+  ],
+  "DEPARTMENT": [
+    {
+      "name": "BLIND CODING",
+      "startTime": "10:00",
+      "endTime": "12:00",
+      "organiser": "Computer Science Department"
+    },
+    {
+      "name": "PAPER MUSERS",
+      "startTime": "11:00",
+      "endTime": "13:00",
+      "organiser": "MBA Department"
+    },
+    {
+      "name": "ROBOTICS AUTOMATION",
+      "startTime": "09:00",
+      "endTime": "12:00",
+      "organiser": "Robotics Club"
+    }
+  ],
+  "WORKSHOPS": [
+    {
+      "name": "toast masters",
+      "startTime": "09:00",
+      "endTime": "12:00",
+      "organiser": "Technical Communication House"
+    },
+    {
+      "name": "INFOSEC INSIGHTS",
+      "startTime": "09:00",
+      "endTime": "12:00",
+      "organiser": "Infosec Club"
+    },
+    {
+      "name": "GEOMETRIA",
+      "startTime": "12:00",
+      "endTime": "14:00",
+      "organiser": "Mathematics Department"
+    },
+    {
+      "name": "MODEL FURNITURE",
+      "startTime": "13:00",
+      "endTime": "15:00",
+      "organiser": "Architecture Department"
+    },
+    {
+      "name": "TREMOR TECH",
+      "startTime": "14:00",
+      "endTime": "17:00",
+      "organiser": "NCDMM"
+    },
+    {
+      "name": "MATERI XPLORER",
+      "startTime": "15:00",
+      "endTime": "17:00",
+      "organiser": "Material Research Center"
+    },
+    {
+      "name": "NANO WIZ QUIZ",
+      "startTime": "15:00",
+      "endTime": "17:00",
+      "organiser": "Metallurgy Departement"
+    }
+  ],
+  "FUN ACTIVITIES": [
+    {
+      "name": "ROOM OF NOSTALGIA | AMONG US | GO KARTING",
+      "startTime": "10:00",
+      "endTime": "22:00",
+      "organiser": "SPHINX"
+    }
+  ],
+  "CULTURAL": [
+    {
+      "name": "CAREER FAIR | START-UP EXPO",
+      "startTime": "10:00",
+      "endTime": "17:00",
+      "organiser": "SPHINX"
+    }
+  ],
+  "FAIRS": [
+    {
+      "name": "TECH-TALK",
+      "startTime": "17:00",
+      "endTime": "19:00",
+      "organiser": ""
+    },
+    {
+      "name": "PRONITE",
+      "startTime": "19:00",
+      "endTime": "22:00",
+      "organiser": ""
+    }
+  ]
+}
