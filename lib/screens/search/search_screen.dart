@@ -4,7 +4,6 @@ import "package:sphinx_2023/screens/home/view_models/home_vm.dart";
 
 import "../../components/scrollable_row.dart";
 import "../../models/event.dart";
-import "../../theme/color_def.dart";
 import "../login/view_model/login_vm.dart";
 
 class ExploreScreen extends StatelessWidget {

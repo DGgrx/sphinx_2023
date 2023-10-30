@@ -3,7 +3,6 @@ import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 import '../../../models/calender.dart';
-import '../../../models/event.dart';
 
 class CalenderVm extends ChangeNotifier {
 
@@ -82,10 +81,12 @@ class CalenderVm extends ChangeNotifier {
     for(int i =0;i<3;i++) {
       data[i].flasgship?.forEach((element) {
         shiftCollection.add(Appointment(
-          startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
-              DateFormat("Hm").parse(element.startTime!))),),
-          endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
-              DateFormat("Hm").parse(element.endTime!)))),
+            startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+                DateFormat("Hm").parse(element.startTime!))),int.parse(DateFormat("m").format(
+                DateFormat("Hm").parse(element.startTime!)))),
+            endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+                DateFormat("Hm").parse(element.endTime!))),int.parse(DateFormat("m").format(
+                DateFormat("Hm").parse(element.endTime!)))),
           subject: element.name!,
           notes: element.organiser,
           color: resourceCollection["Flagship"]!,
@@ -96,10 +97,12 @@ class CalenderVm extends ChangeNotifier {
       //
       data[i].club?.forEach((element) {
         shiftCollection.add(Appointment(
-          startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
-              DateFormat("Hm").parse(element.startTime!))),),
-          endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
-              DateFormat("Hm").parse(element.endTime!)))),
+            startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+                DateFormat("Hm").parse(element.startTime!))),int.parse(DateFormat("m").format(
+                DateFormat("Hm").parse(element.startTime!)))),
+            endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+                DateFormat("Hm").parse(element.endTime!))),int.parse(DateFormat("m").format(
+                DateFormat("Hm").parse(element.endTime!)))),
           subject: element.name!,
           notes: element.organiser,
           color: resourceCollection["Club"]!,
@@ -112,8 +115,10 @@ class CalenderVm extends ChangeNotifier {
       data[i].workshops?.forEach((element) {
         shiftCollection.add(Appointment(
           startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
-              DateFormat("Hm").parse(element.startTime!))),),
+              DateFormat("Hm").parse(element.startTime!))),int.parse(DateFormat("m").format(
+              DateFormat("Hm").parse(element.startTime!)))),
           endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+              DateFormat("Hm").parse(element.endTime!))),int.parse(DateFormat("m").format(
               DateFormat("Hm").parse(element.endTime!)))),
           subject: element.name!,
           notes: element.organiser,
@@ -125,10 +130,12 @@ class CalenderVm extends ChangeNotifier {
       });
       data[i].concalve?.forEach((element) {
         shiftCollection.add(Appointment(
-          startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
-              DateFormat("Hm").parse(element.startTime!))),),
-          endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
-              DateFormat("Hm").parse(element.endTime!)))),
+            startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+                DateFormat("Hm").parse(element.startTime!))),int.parse(DateFormat("m").format(
+                DateFormat("Hm").parse(element.startTime!)))),
+            endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+                DateFormat("Hm").parse(element.endTime!))),int.parse(DateFormat("m").format(
+                DateFormat("Hm").parse(element.endTime!)))),
           subject: element.name!,
           notes: element.organiser,
           color: resourceCollection["Conclave"]!,
@@ -140,10 +147,12 @@ class CalenderVm extends ChangeNotifier {
 
       data[i].department?.forEach((element) {
         shiftCollection.add(Appointment(
-          startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
-              DateFormat("Hm").parse(element.startTime!))),),
-          endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
-              DateFormat("Hm").parse(element.endTime!)))),
+            startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+                DateFormat("Hm").parse(element.startTime!))),int.parse(DateFormat("m").format(
+                DateFormat("Hm").parse(element.startTime!)))),
+            endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+                DateFormat("Hm").parse(element.endTime!))),int.parse(DateFormat("m").format(
+                DateFormat("Hm").parse(element.endTime!)))),
           subject: element.name!,
           notes: element.organiser,
           color: resourceCollection["Department"]!,
@@ -155,10 +164,12 @@ class CalenderVm extends ChangeNotifier {
 
       data[i].fairsexhibitions?.forEach((element) {
         shiftCollection.add(Appointment(
-          startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
-              DateFormat("Hm").parse(element.startTime!))),),
-          endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
-              DateFormat("Hm").parse(element.endTime!)))),
+            startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+                DateFormat("Hm").parse(element.startTime!))),int.parse(DateFormat("m").format(
+                DateFormat("Hm").parse(element.startTime!)))),
+            endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+                DateFormat("Hm").parse(element.endTime!))),int.parse(DateFormat("m").format(
+                DateFormat("Hm").parse(element.endTime!)))),
           subject: element.name!,
           notes: element.organiser,
           color: resourceCollection["Fairs/Exhibitions"]!,
@@ -170,10 +181,12 @@ class CalenderVm extends ChangeNotifier {
 
       data[i].funactivities?.forEach((element) {
         shiftCollection.add(Appointment(
-          startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
-              DateFormat("Hm").parse(element.startTime!))),),
-          endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
-              DateFormat("Hm").parse(element.endTime!)))),
+            startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+                DateFormat("Hm").parse(element.startTime!))),int.parse(DateFormat("m").format(
+                DateFormat("Hm").parse(element.startTime!)))),
+            endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+                DateFormat("Hm").parse(element.endTime!))),int.parse(DateFormat("m").format(
+                DateFormat("Hm").parse(element.endTime!)))),
           subject: element.name!,
           notes: element.organiser,
           color: resourceCollection["Fun Activities"]!,
@@ -186,10 +199,12 @@ class CalenderVm extends ChangeNotifier {
       data[i].cultural?.forEach((element) {
 
         shiftCollection.add(Appointment(
-          startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
-              DateFormat("Hm").parse(element.startTime!))),),
-          endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
-              DateFormat("Hm").parse(element.endTime!)))),
+            startTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+                DateFormat("Hm").parse(element.startTime!))),int.parse(DateFormat("m").format(
+                DateFormat("Hm").parse(element.startTime!)))),
+            endTime: DateTime(2023, 11, i+3, int.parse(DateFormat("H").format(
+                DateFormat("Hm").parse(element.endTime!))),int.parse(DateFormat("m").format(
+                DateFormat("Hm").parse(element.endTime!)))),
           subject: element.name!,
           notes: element.organiser,
           color: resourceCollection["Cultural"]!,

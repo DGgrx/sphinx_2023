@@ -1,11 +1,8 @@
 import "package:flutter/material.dart";
-import "package:sphinx_2023/screens/search/event_details/view_model/event_vm.dart";
 
 import "../../../common/data_store.dart";
 import "../../../common/navigator.dart";
 import "../../../common/routing.dart";
-import "../../home/landing.dart";
-import "../../home/landing.dart";
 import "../../login/view_model/login_vm.dart";
 import "../repo/splash_repo.dart";
 

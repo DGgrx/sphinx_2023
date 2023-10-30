@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sphinx_2023/providers/calendar_data.dart';
-import 'package:sphinx_2023/screens/home/landing.dart';
-import 'package:sphinx_2023/screens/search/search_screen.dart';
 import 'package:sphinx_2023/screens/splash/splash_screen.dart';
 
 import 'app_providers.dart';

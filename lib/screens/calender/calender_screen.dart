@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sphinx_2023/providers/calendar_data.dart';
 import 'package:sphinx_2023/screens/calender/view_model/calender_vm.dart';
-import 'package:sphinx_2023/screens/login/view_model/login_vm.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'package:intl/intl.dart';
 

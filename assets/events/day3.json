@@ -1,113 +1,115 @@
 {
   "FLAGSHIP": [
     {
-      "name": " 24 HOUR - HACKATHON",
+      "name": "MINUTE TO PITCH IT",
       "startTime": "10:00",
+      "endTime": "15:00",
+      "organiser":
+      ""
+    },
+    {
+      "name": " 24 HOUR - HACKATHON",
+      "startTime": "9:00",
       "endTime": "22:00",
       "organiser":
       "Infosec & computer science club"
     },
     {
-      "name": " E-SPORTS",
-      "startTime": "12:00",
-      "endTime": "18:30",
+      "name": "ROBOWARS",
+      "startTime": "16:00",
+      "endTime": "21:00",
       "organiser": ""
     }
   ],
   "CLUB": [
     {
-      "name": "24-HOUR WEB 3 HACKATHON",
-      "startTime": "09:00",
+      "name": "CAPTURE THE FLAG",
+      "startTime": "11:00",
+      "endTime": "15:00",
+      "organiser": "Infosec & Computer Science Club"
+    },
+    {
+      "name": "MAZE SOLVER",
+      "startTime": "10:00",
       "endTime": "13:00",
-      "organiser": " Infosec & Computer Science Club"
+      "organiser": "Robotics Club"
     },
     {
-      "name": " IDEA-IGNITE",
-      "startTime": "12:00",
-      "endTime": "14:00",
-      "organiser": " Entreprenuership Club"
+      "name": "CODEMANE",
+      "startTime": "10:00",
+      "endTime": "13:00",
+      "organiser":"Computer Science Club"
     },
     {
-      "name": "ACTIVE-LEARNER",
+      "name": "TECH PER TRADE",
       "startTime": "14:00",
-      "endTime": "17:30",
-      "organiser":
-      "Data Science Club"
-    },
-    {
-      "name": "RUBE-A-THON",
-      "startTime": "13:00",
-      "endTime": "16:30",
-      "organiser":
-      " Tinkering Club"
+      "endTime": "16:00",
+      "organiser":"Economics & Finance Club"
     }
 
   ],
   "DEPARTMENT": [
     {
-      "name": " ED-CELL EVENT",
-      "startTime": "10:00",
-      "endTime": "12:00",
-      "organiser": "ED-Cell"
+      "name": "MUcraft",
+      "startTime": "11:00",
+      "endTime": "13:00",
+      "organiser": "Electronics Department"
     },
     {
-      "name": "ETCH-FACTOR",
-      "startTime": "10:00",
-      "endTime": "12:00",
-      "organiser": "Metallurgy Departement"
+      "name": "CADESTROPHE",
+      "startTime": "13:00",
+      "endTime": "15:00",
+      "organiser": "Mechanical Department"
     },
     {
-      "name": "NANO PHOTOGRAPHY",
-      "startTime": "12:00",
+      "name": "Tolerance Bridge",
+      "startTime": "11:00",
       "endTime": "14:00",
-      "organiser": "Material Research Center"
+      "organiser": "Civil Department"
     },
     {
-      "name": "AD-FRENZY",
-      "startTime": "12:00",
+      "name": "BUSINESS FEUD",
+      "startTime": "14:00",
+      "endTime": "16:00",
+      "organiser": "Mathematics Department"
+    },
+    {
+      "name": "Code Golfing",
+      "startTime": "11:00",
       "endTime": "14:00",
       "organiser": "MBA Department"
     },
     {
-      "name": "MNIT ON A CIRCUIT",
-      "startTime": "14:00",
-      "endTime": "17:30",
+      "name": "Rocket Rivalries",
+      "startTime": "12:00",
+      "endTime": "14:00",
       "organiser": "Electrical Department"
-    },
-    {
-      "name": "SHAKUNTALA DEVI QUIZ",
-      "startTime": "15:00",
-      "endTime": "17:30",
-      "organiser": "Mathematics Depatment"
     }
   ],
   "WORKSHOPS": [
     {
-      "name": "ZERO TO LINKDEN",
-      "startTime": "09:00",
+      "name": "GLIDER-MASTERS",
+      "startTime": "9:00",
       "endTime": "12:00",
-      "organiser":
-      "Computer Science Club"
+      "organiser": "AeroModelling Club"
     },
     {
-      "name": "PORTFOLIO BUILDING",
-      "startTime": "09:00",
+      "name": "VISIONARY VENTURES",
+      "startTime": "9:00",
       "endTime": "12:00",
-      "organiser": "PORTFOLIO BUILDING"
+      "organiser": "Entrepreneurship Club"
     },
     {
-      "name": "FORMULA NANO",
-      "startTime": "09:00",
-      "endTime": "13:00",
-      "organiser": "Zine Robotics & Research group"
-    }
-  ],
-  "CONCLAVE": [
+      "name": "FACE SCAPE",
+      "startTime": "9:00",
+      "endTime": "12:00",
+      "organiser": "Data Science Club"
+    },
     {
-      "name": "STUDENT RESEARCH CONCLAVE",
-      "startTime": "09:00",
-      "endTime": "17:00",
-      "organiser": ""
+      "name": "MICROMAKERS",
+      "startTime": "9:00",
+      "endTime": "11:00",
+      "organiser": "Electronics Department"
     }
   ],
   "FUN ACTIVITIES": [
@@ -122,7 +124,7 @@
     {
       "name": "TECH-TALK",
       "startTime": "17:00",
-      "endTime": "19:00",
+      "endTime": "18:30",
       "organiser": ""
     },
     {
@@ -140,16 +142,10 @@
       "organiser": " Physics Department"
     },
     {
-      "name": "CHEMICAL DISASTER EXHIBIT",
+      "name": "ARCHITECTURAL EXHIBITORY",
       "startTime": "11:00",
       "endTime": "16:00",
-      "organiser": "Chemistry Department"
-    },
-    {
-      "name": "DISASTER MITIGATION & MANAGEMENT EXHIBIT",
-      "startTime": "11:00",
-      "endTime": "16:00",
-      "organiser": "National Centre for Disaster Mitigation & Management"
+      "organiser": "Architecture Department"
     },
     {
       "name": "CAREER FAIR | START-UP EXPO ",

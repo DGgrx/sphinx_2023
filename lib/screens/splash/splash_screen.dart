@@ -4,11 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:sphinx_2023/screens/login/view_model/login_vm.dart';
 import 'package:sphinx_2023/screens/splash/view_model/splash_vm.dart';
 
-import '../../common/navigator.dart';
-import '../../common/routing.dart';
-
-// import '/components/gradient.dart';
-// import '/screens/onboarding/splash/viewModel/splashVm.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
