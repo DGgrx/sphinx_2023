@@ -37,6 +37,7 @@ class LoginRepo {
 
     final GoogleSignInAccount? googleAccount = await googleSignIn.signIn();
 
+    // googleSignIn.signOut();
     return googleAccount!;
     // await login(email: googleAccount!.email,password: googleAccount!.id);
 

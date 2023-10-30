@@ -1,25 +1,27 @@
 import "package:flutter/material.dart";
+import "package:sphinx_2023/screens/search/event_details/view_model/event_vm.dart";
 
+import "../../../common/data_store.dart";
+import "../../../common/navigator.dart";
+import "../../../common/routing.dart";
+import "../../home/landing.dart";
+import "../../home/landing.dart";
+import "../../login/view_model/login_vm.dart";
 import "../repo/splash_repo.dart";
 
 class SplashVM extends ChangeNotifier {
-  // final DataStore store;
+  final DataStore store;
+
   // final UserProv userProv;
   // final AuthRepo authRepo;
 
   final SplashRepo splashRepo;
 
+  SplashVM({required this.store, required this.splashRepo}); // {
 
-  SplashVM(this.splashRepo// {
-      // required this.store,
-      // required this.userProv,
-      // required this.authRepo
-      // }
-      );
-
-
-
-
+  // required this.userProv,
+  // required this.authRepo
+  // );
 
   String getData(String param) {
     return "";
@@ -27,20 +29,22 @@ class SplashVM extends ChangeNotifier {
     // return data.toString();
   }
 
+  Future<void> isLogged(BuildContext context, LoginVm loginVm) async {
+    String? logged = store.getString('loggedIn');
+    String? id = store.getString('id');
 
-  Future<void> isLogged(BuildContext context) async {
-    // String? logged = store.getString('loggedIn');
-    // String? uid = store.getString('uid');
-    //
-    // if (logged != null && logged.toString() == 'true') {
-    //   UserModel? currUser = await authRepo.getUserbyId(uid.toString());
-    //   userProv.updateUserInfo(currUser as UserModel);
-    //   await Navigator.of(NavigationService.navigatorKey.currentContext!,
-    //       rootNavigator: true)
-    //       .pushReplacement(Routes.homeScreen());
-    // } else {
-    //   await Navigator.of(NavigationService.navigatorKey.currentContext!,
-    //       rootNavigator: true)
-    //       .pushReplacement(Routes.landingScreen());
+    // print(id);
+    // print(logged);
+
+    if (logged != null && logged.toString() == 'true') {
+      await loginVm.getUserDetails(id);
+      await Navigator.of(NavigationService.navigatorKey.currentContext!,
+              rootNavigator: true)
+          .pushReplacement(Routes.landingScreen());
+    } else {
+      await Navigator.of(NavigationService.navigatorKey.currentContext!,
+              rootNavigator: true)
+          .pushReplacement(Routes.loginScreen());
+    }
   }
 }

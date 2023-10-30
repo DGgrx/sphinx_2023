@@ -67,13 +67,17 @@ class ProfileScreen extends StatelessWidget {
                   child: QrImageView(
                     // backgroundColor: ,
                     size: MediaQuery.of(context).size.height * 0.28,
+                    //Madarchod Priyansh BKL User Persona galat banaya MC
+                    // data: "4417WVX",
                     data: user.uniqueID!,
                   ),
                 ),
                 Positioned(
                   bottom: 55,
                   child: Text(
-                    "#${user.uniqueID!}",
+                  //Madarchod Priyansh BKL User Persona galat banaya MC
+                  "#${user.uniqueID!}",
+                    //   "4417WVX",
                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontFamily: "Poppins-Black",
@@ -121,6 +125,8 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       CardTile(title: user.email!, label: "Registered Email"),
                       CardTile(
+                        //Madarchod Priyansh BKL User Persona galat banaya MC
+                        // title: "+91-977827349732",
                         title: "+91-${user.phoneNumber!.toString()}",
                         label: "Registered Phone no.",
                       ),

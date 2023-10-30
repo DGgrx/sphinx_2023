@@ -35,17 +35,17 @@ class CalenderVm extends ChangeNotifier {
 
   List<EventData> data = [];
 
-  late EventData day1;
-  late EventData day2;
-  late EventData day3;
+  // late EventData day1;
+  // late EventData day2;
+  // late EventData day3;
 
 
   void setData(List<EventData> val) {
     data = val;
     // print(val);
-    day1 = val[0];
-    day2 = val[1];
-    day3 = val[2];
+    // day1 = val[0];
+    // day2 = val[1];
+    // day3 = val[2];
     addResources();
     addAppointments();
   }
@@ -60,12 +60,12 @@ class CalenderVm extends ChangeNotifier {
     }
   }
 
-  DateTime viewDate = DateTime(2023, 11, 3);
-
-  void setViewDate(var val) {
-    viewDate = val;
-    notifyListeners();
-  }
+  // DateTime viewDate = DateTime(2023, 11, 3);
+  //
+  // void setViewDate(var val) {
+  //   viewDate = val;
+  //   notifyListeners();
+  // }
 
   int index = 0;
 
@@ -199,7 +199,7 @@ class CalenderVm extends ChangeNotifier {
       });
     }
 
-    print(shiftCollection);
+    // print(shiftCollection);
 
   }
 }

@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:sphinx_2023/common/sphinx_loader.dart';
 import 'package:sphinx_2023/screens/login/register.dart';
 import 'package:sphinx_2023/screens/login/view_model/login_vm.dart';
+import 'package:sphinx_2023/screens/search/event_details/view_model/event_vm.dart';
+import 'package:sphinx_2023/theme/color_def.dart';
 import '../../components/custom_button.dart';
 
 class LoginForm extends StatefulWidget {
@@ -18,7 +20,7 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<LoginVm>(builder: (context, loginVm, _) {
+    return Consumer2<LoginVm, EventVm>(builder: (context, loginVm, eventVm, _) {
       return loginVm.isLoading
           ? const LoadingScreen()
           : Padding(
@@ -75,7 +77,7 @@ class _LoginFormState extends State<LoginForm> {
                     style: const TextStyle(color: Colors.white),
                     controller: passwordCon,
                     cursorColor: Colors.white,
-                    decoration:  InputDecoration(
+                    decoration: InputDecoration(
                       contentPadding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                       focusColor: Colors.white,
                       focusedBorder: const UnderlineInputBorder(
@@ -86,16 +88,34 @@ class _LoginFormState extends State<LoginForm> {
                         icon: ImageIcon(
                           const AssetImage('assets/icons/eye.png'),
                           color:
-                          loginVm.togglePass ? Colors.grey : Colors.white,
+                              loginVm.togglePass ? Colors.grey : Colors.white,
                         ),
                         onPressed: loginVm.togglePassW,
                       ),
                     ),
-
-
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      style: ButtonStyle(
+                        padding: MaterialStateProperty.all(EdgeInsets.zero),
+                        // textStyle: MaterialStateProperty.all(TextStyle(f))
+                      ),
+                      onPressed: () {
+                        eventVm.launchUrl("https://sphinx.org.in/login");
+                      },
+                      child: Text(
+                        "Forgot password ?",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(color: buttonYellow),
+                      ),
+                    ),
                   ),
                   const SizedBox(
-                    height: 30,
+                    height: 5,
                   ),
                   CustomButton(
                     title: "Login",

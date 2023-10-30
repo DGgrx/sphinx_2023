@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sphinx_2023/common/sphinx_loader.dart';
 import 'package:sphinx_2023/screens/login/view_model/login_vm.dart';
+import 'package:sphinx_2023/screens/search/event_details/view_model/event_vm.dart';
 
 import '../../theme/color_def.dart';
+import '../search/event_details/event_detail_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,11 +15,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return Consumer<LoginVm>(
-      builder: (context,loginVm,_) {
+    return Consumer2<LoginVm,EventVm>(
+      builder: (context,loginVm,eventVm,_) {
         return SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+          child: ListView(
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(
                 height: 50,
@@ -51,90 +53,110 @@ class HomeScreen extends StatelessWidget {
                     autoPlay: true,
                     autoPlayInterval: const Duration(seconds: 5)),
                 items: loginVm.events
-                    .map((event) => ClipRRect(
+                    .map((event) => GestureDetector(
+                      onTap: (){
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) =>
+                                EventDetail(event: event)));
+                      },
+                      child: ClipRRect(
                   borderRadius: const BorderRadius.all(Radius.circular(15)),
                   // height: 100,
                   child: Container(
-                    decoration: const BoxDecoration(color: Colors.white),
-                    child: CachedNetworkImage(
-                      imageUrl: event.imageUrl!,
-                      placeholder: (context, url) =>
-                          Container(
-                            decoration: const BoxDecoration(color: Colors.black),
-                            child: const LoadingScreen(),
-                          ),
-                      errorWidget: (context, url, error) =>
-                          const Icon(Icons.error),
-                    ),
+                      decoration: const BoxDecoration(color: Colors.white),
+                      child: CachedNetworkImage(
+                        imageUrl: event.imageUrl!,
+                        placeholder: (context, url) =>
+                            Container(
+                              decoration: const BoxDecoration(color: Colors.black),
+                              child: const LoadingScreen(),
+                            ),
+                        errorWidget: (context, url, error) =>
+                            Container(
+                                height: 100,
+                                child: const Icon(Icons.error)),
+                      ),
                   ),
-                ))
+                ),
+                    ))
                     .toList(),
               ),
               const SizedBox(
-                height: 32,
+                height: 28,
               ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Container(
-                  height: 100,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(20)),
-                    border: Border.all(color: buttonYellow),
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Flexible(
-                            child: Text(
-                              "Explore All Events",
+              GestureDetector(
+                onTap: (){
+                  eventVm.launchUrl("https://unstop.com/college-fests/sphinx-malaviya-national-institute-of-technology-mnit-jaipur-161670");
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: Container(
+                    height: 100,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(20)),
+                      border: Border.all(color: buttonYellow),
+                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Flexible(
+                              child: Text(
+                                "Explore All Events",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontFamily: "Rog"),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "Register and win exciting prizes!",
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 18,
-                                  fontFamily: "Rog"),
+                                  fontSize: 12,
+                                  fontFamily: "Poppins"),
                             ),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "Register and win exciting prizes!",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontFamily: "Poppins"),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "Check out now!",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontFamily: "Poppins"),
-                          ),
-                        ],
-                      ),
-                      Flexible(
-                        child: Image.asset(
-                          "assets/icons/trophy.png",
-                          height: 55,
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Check out now!",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                  fontFamily: "Poppins"),
+                            ),
+                          ],
                         ),
-                      )
-                    ],
+                        Flexible(
+                          child: Image.asset(
+                            "assets/icons/trophy.png",
+                            height: 55,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
-              const Spacer(),
-              Image.asset(
-                "assets/love.png",
-                height: 35,
+              SizedBox(height: 35,),
+              // const Spacer(),
+              GestureDetector(
+                onTap: (){
+                  eventVm.launchUrl("https://zine.co.in/team");
+                },
+                child: Image.asset(
+                  "assets/love.png",
+                  height: 35,
+                ),
               ),
               const SizedBox(
                 height: 30,

@@ -3,6 +3,7 @@ import 'package:sphinx_2023/screens/calender/calender_screen.dart';
 import 'package:sphinx_2023/screens/home/home.dart';
 import 'package:sphinx_2023/screens/profile/profile_screen.dart';
 import 'package:sphinx_2023/screens/search/event_details/event_detail_screen.dart';
+import 'package:sphinx_2023/screens/search/search_screen.dart';
 import 'package:sphinx_2023/theme/color_def.dart';
 
 
@@ -70,7 +71,8 @@ class _LandingState extends State<Landing> with TickerProviderStateMixin{
         controller: _tabController,
         children: const [
           HomeScreen(),
-          EventDetail(),
+          ExploreScreen(),
+          // EventDetail(),
           CalenderScreen(),
           ProfileScreen()
         ],

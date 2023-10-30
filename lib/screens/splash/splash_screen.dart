@@ -1,5 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sphinx_2023/screens/login/view_model/login_vm.dart';
+import 'package:sphinx_2023/screens/splash/view_model/splash_vm.dart';
 
 import '../../common/navigator.dart';
 import '../../common/routing.dart';
@@ -18,11 +21,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    SplashVM splashVm = Provider.of<SplashVM>(context, listen: false);
+    LoginVm loginVm = Provider.of<LoginVm>(context, listen: false);
     Timer(
-        const Duration(seconds: 5),
-        () => Navigator.of(NavigationService.navigatorKey.currentContext!,
-                rootNavigator: true)
-            .pushReplacement(Routes.loginScreen()));
+        const Duration(seconds: 3),
+        () => splashVm.isLogged(context, loginVm));
   }
 
   @override

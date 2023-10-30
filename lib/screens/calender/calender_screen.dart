@@ -37,8 +37,8 @@ class CalenderScreenState extends State<CalenderScreen> {
       _events = _DataSource(
           calendarVm.shiftCollection, calendarVm.categoryCollection);
 
-      print(calendarVm.categoryCollection.length);
-      print(calendarVm.shiftCollection.length);
+      // print(calendarVm.categoryCollection.length);
+      // print(calendarVm.shiftCollection.length);
 
       return SafeArea(
         child: Column(
@@ -81,13 +81,7 @@ class CalenderScreenState extends State<CalenderScreen> {
             ),
             Expanded(
               child: SfCalendar(
-                // onViewChanged: ,
-                // viewHeaderHeight: 0,
-                // initialDisplayDate: DateTime(2023,11,3),
-                // onViewChanged: (ViewChangedDetails viewChangedDetails){
-                //   calendarVm.setViewDate(_calendarController.displayDate);
-                // },
-                // headerDateFormat: "MEd",
+
                 viewHeaderStyle: const ViewHeaderStyle(
                     dateTextStyle: TextStyle(
                         color: Colors.white,
@@ -114,7 +108,7 @@ class CalenderScreenState extends State<CalenderScreen> {
                 appointmentBuilder: appointmentBuilder,
                 resourceViewHeaderBuilder: resourceBuilder,
                 timeSlotViewSettings: const TimeSlotViewSettings(
-                  startHour: 8,
+                  startHour: 9,
                   endHour: 23,
                   // timeIntervalHeight: -1,
                   timeTextStyle: TextStyle(
@@ -145,7 +139,7 @@ class CalenderScreenState extends State<CalenderScreen> {
         borderRadius: const BorderRadius.all(Radius.circular(10)),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -154,7 +148,7 @@ class CalenderScreenState extends State<CalenderScreen> {
               child: Text(
                 appointment.subject.toUpperCase(),
                 style: const TextStyle(
-                  fontSize: 10,
+                  fontSize: 12,
                     color: Colors.black,
                     fontFamily: "Rog",
                     fontWeight: FontWeight.bold),
@@ -179,7 +173,7 @@ class CalenderScreenState extends State<CalenderScreen> {
   Widget resourceBuilder(
       BuildContext context, ResourceViewHeaderDetails details) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 0),
+      padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 3),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.only(
