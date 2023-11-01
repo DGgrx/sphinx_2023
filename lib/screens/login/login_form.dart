@@ -54,7 +54,7 @@ class _LoginFormState extends State<LoginForm> {
                     controller: usernameCon,
                     cursorColor: Colors.white,
                     decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                      // contentPadding: EdgeInsets.fromLTRB(0, 10, 0, 10),
                       focusColor: Colors.white,
                       focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.white)),

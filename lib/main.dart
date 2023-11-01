@@ -62,12 +62,14 @@ class MyApp extends StatelessWidget {
       store: store,
       calendarData: _calendarDataProv,
       child: MaterialApp(
+
         debugShowCheckedModeBanner: false,
         navigatorKey: NavigationService.navigatorKey,
         title: 'Sphinx',
         theme: ThemeData(
           fontFamily: 'Poppins',
           primarySwatch: Colors.yellow,
+          useMaterial3: true,
         ),
         home:  SplashScreen(),
       ),

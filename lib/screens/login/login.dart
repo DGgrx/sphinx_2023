@@ -21,10 +21,7 @@ class LoginScreen extends StatelessWidget {
         backgroundColor: Colors.black,
         body: Stack(
           children: [
-            const Align(
-              alignment: AlignmentDirectional.center,
-              child: LoginForm(),
-            ),
+
             Positioned(
                 top: -100,
                 left: -200,
@@ -42,6 +39,10 @@ class LoginScreen extends StatelessWidget {
                     height: 380,
                   ),
                 )),
+            const Align(
+              alignment: AlignmentDirectional.center,
+              child: LoginForm(),
+            ),
           ],
         ),
       ),

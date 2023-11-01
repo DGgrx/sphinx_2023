@@ -47,6 +47,9 @@ dependencies:
   intl: ^0.18.1
   url_launcher: ^6.2.1
   shared_preferences: ^2.2.2
+  mobile_scanner: ^3.5.1
+  qr_scanner_overlay: ^0.0.2
+  lite_rolling_switch: ^1.0.1
 
 dev_dependencies:
   flutter_launcher_icons: "^0.13.1"
@@ -73,7 +76,7 @@ flutter:
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
-#  uses-material-design: true
+  uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
   assets:

@@ -26,7 +26,7 @@ class SplashRepo {
 
   Future<Profile> getUserDetails(String id) async {
     final response = await http
-        .get(Uri.parse('https://sphinx-backend.onrender.com/api/users/$id'));
+        .get(Uri.parse('https://sphinx-372511.de.r.appspot.com/api/users/$id'));
 
     if (response.statusCode == 200) {
       // If the server did return a 200 OK response,

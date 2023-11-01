@@ -80,16 +80,20 @@ class _LandingState extends State<Landing> with TickerProviderStateMixin{
 
       bottomNavigationBar: Container(
         decoration:
-            const BoxDecoration(border: Border(top: BorderSide(color: Colors.white))),
+            const BoxDecoration(border: Border(
+                top: BorderSide(color: Colors.white),
+            )),
         child: TabBar(
+          indicatorColor: Colors.black,
+          dividerColor: Colors.black,
           controller: _tabController,
           labelColor: selectedYellow,
           unselectedLabelColor: unselectedYellow,
           labelPadding: EdgeInsets.zero,
           padding: const EdgeInsets.all(10),
           indicator: const UnderlineTabIndicator(
-            borderSide: BorderSide(color: selectedYellow, width: 7.0),
-            insets: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 55.0),
+            borderSide: BorderSide(color: selectedYellow, width: 8.0),
+            insets: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 55.0),
           ),
           tabs: const [
             Tab(

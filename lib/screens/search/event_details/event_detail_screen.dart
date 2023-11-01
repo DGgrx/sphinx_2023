@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:sphinx_2023/screens/login/view_model/login_vm.dart';
 import 'package:sphinx_2023/screens/search/event_details/view_model/event_vm.dart';
 
 import '../../../models/event.dart';
@@ -15,12 +14,7 @@ class EventDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // String eventUrl = event.imageUrl!;
-
-    return Consumer2<LoginVm,EventVm>(builder: (context, loginVm,eventVm, _) {
-      // var event = loginVm.events[0];
-      // var eventUrl = loginVm.events[0].imageUrl;
-
+    return Consumer<EventVm>(builder: (context, eventVm, _) {
       return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
@@ -30,7 +24,8 @@ class EventDetail extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              icon: const Icon(Icons.arrow_back,
+              icon: const Icon(
+                Icons.arrow_back,
                 color: Colors.white,
               ),
             ),
@@ -73,8 +68,8 @@ class EventDetail extends StatelessWidget {
                   height: 20,
                 ),
                 GestureDetector(
-                  onTap:(){
-                    if(event.redirectUrl != null ) {
+                  onTap: () {
+                    if (event.redirectUrl != null) {
                       eventVm.launchUrl(event.redirectUrl);
                     }
                   },
@@ -111,8 +106,8 @@ class EventDetail extends StatelessWidget {
                 ),
                 Text(
                   " ${DateFormat("yMMMEd").format(DateTime.parse(event.from.toString()))}"
-                      "\n${DateFormat.jmz().format(DateFormat("hh:mm").parse(event.time.toString()))}"
-                      "\n${event.location}",
+                  "\n${DateFormat.jmz().format(DateFormat("hh:mm").parse(event.time.toString()))}"
+                  "\n${event.location}",
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     color: Colors.white,
@@ -128,8 +123,9 @@ class EventDetail extends StatelessWidget {
                     fontSize: 15,
                   ),
                 ),
-                SizedBox(height: 10,),
-
+                SizedBox(
+                  height: 10,
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                       vertical: 8.0, horizontal: 30.0),
@@ -151,21 +147,21 @@ class EventDetail extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 20,),
-                Text("For more details, read the rulebook,",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: "Poppins",
-                  fontSize: 12
+                SizedBox(
+                  height: 20,
                 ),
+                Text(
+                  "For more details, read the rulebook,",
+                  style: TextStyle(
+                      color: Colors.white, fontFamily: "Poppins", fontSize: 12),
                 ),
                 GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     eventVm.launchUrl(event.rulebook);
                   },
                   child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 8.0, horizontal: 32),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 32),
                     child: Container(
                       height: 50,
                       decoration: BoxDecoration(
@@ -197,7 +193,9 @@ class EventDetail extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 40,),
+                SizedBox(
+                  height: 40,
+                ),
               ],
             ),
           ),

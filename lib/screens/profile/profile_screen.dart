@@ -1,157 +1,91 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qr_flutter/qr_flutter.dart';
-import 'package:sphinx_2023/components/custom_button.dart';
-import 'package:sphinx_2023/components/profile_card_tile.dart';
+import 'package:sphinx_2023/common/sphinx_loader.dart';
 import 'package:sphinx_2023/components/tab_button.dart';
+import 'package:sphinx_2023/screens/admin/qr_scan_screen.dart';
+import 'package:sphinx_2023/screens/admin/view_model/qr_scan_vm.dart';
 import 'package:sphinx_2023/screens/login/view_model/login_vm.dart';
+import 'package:sphinx_2023/screens/profile/events.dart';
+import 'package:sphinx_2023/screens/profile/passes.dart';
+import 'package:sphinx_2023/screens/profile/profile.dart';
 import 'package:sphinx_2023/screens/profile/view_model/profile_vm.dart';
+
+import '../../models/profile.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Consumer2<LoginVm, ProfileVm>(
-        builder: (context, loginVm, profileVm, _) {
-      var user = loginVm.user;
-      return SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return Consumer3<LoginVm, ProfileVm, QRScanVM>(
+        builder: (context, loginVm, profileVm, qrVm, _) {
+      Profile _user = loginVm.user;
+      profileVm.getUserEvents(_user.events!, loginVm.events);
+
+      print(profileVm.userRegisteredEvents);
+
+      List<Widget> widgetToShow = [
+        ProfileWidget(
+            user: _user,
+            callback: () {
+              loginVm.logout();
+            },
+          adminCallback: () async{
+            await qrVm.getAdminEvents();
+            await Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => QRScannerPage()));
+          },
+        ),
+        EventsWidget(events: profileVm.userRegisteredEvents,),
+        PassesWidget(passes: _user.passes,),
+      ];
+
+      return qrVm.isLoading || profileVm.isLoading
+          ? LoadingScreen()
+          : SingleChildScrollView(
+              child: Column(
                 children: [
-                  TabButton(
-                    callback: () {
-                      profileVm.setIndex(0);
-                    },
-                    title: "Profile".toUpperCase(),
-                    inFocus: profileVm.index == 0,
+                  const SizedBox(
+                    height: 20,
                   ),
-                  TabButton(
-                    callback: () {
-                      profileVm.setIndex(1);
-                    },
-                    title: "Events".toUpperCase(),
-                    inFocus: profileVm.index == 1,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        TabButton(
+                          callback: () {
+                            profileVm.setIndex(0);
+                          },
+                          title: "Profile".toUpperCase(),
+                          inFocus: profileVm.index == 0,
+                        ),
+                        TabButton(
+                          callback: () {
+                            profileVm.setIndex(1);
+                          },
+                          title: "Events".toUpperCase(),
+                          inFocus: profileVm.index == 1,
+                        ),
+                        TabButton(
+                          callback: () {
+                            profileVm.setIndex(2);
+                          },
+                          title: "Passes".toUpperCase(),
+                          inFocus: profileVm.index == 2,
+                        ),
+                      ],
+                    ),
                   ),
-                  TabButton(
-                    callback: () {
-                      profileVm.setIndex(2);
-                    },
-                    title: "Passes".toUpperCase(),
-                    inFocus: profileVm.index == 2,
+                  const SizedBox(
+                    height: 25,
                   ),
+                  widgetToShow[profileVm.index]
                 ],
               ),
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                Image.asset(
-                  "assets/qr_back.png",
-                  height: MediaQuery.of(context).size.height * 0.42,
-                ),
-                Positioned(
-                  top: 20,
-                  child: QrImageView(
-                    // backgroundColor: ,
-                    size: MediaQuery.of(context).size.height * 0.28,
-                    //Madarchod Priyansh BKL User Persona galat banaya MC
-                    // data: "4417WVX",
-                    data: user.uniqueID!,
-                  ),
-                ),
-                Positioned(
-                  bottom: 55,
-                  child: Text(
-                  //Madarchod Priyansh BKL User Persona galat banaya MC
-                  "#${user.uniqueID!}",
-                    //   "4417WVX",
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Poppins-Black",
-                        fontSize: 30),
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Card(
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                ),
-                color: const Color(0xff171717),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        user.name!.toUpperCase(),
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1.2,
-                          fontFamily: "Poppins",
-                          shadows: [
-                            BoxShadow(
-                              color: Colors.white,
-                              spreadRadius: 1,
-                              blurRadius: 30,
-                              offset: Offset(0, 3),
-                            ),
-                          ],
-                          fontSize: 25,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 18,
-                      ),
-                      CardTile(title: user.email!, label: "Registered Email"),
-                      CardTile(
-                        //Madarchod Priyansh BKL User Persona galat banaya MC
-                        // title: "+91-977827349732",
-                        title: "+91-${user.phoneNumber!.toString()}",
-                        label: "Registered Phone no.",
-                      ),
-                      CardTile(
-                        title: user.collegeName!,
-                        label: "College",
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            // SizedBox(height: 20,),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 32.0, vertical: 0),
-              child:
-                  CustomButton(callback: () {loginVm.logout();}, title: "Logout".toUpperCase()),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-          ],
-        ),
-      );
+            );
     });
   }
 }

@@ -2,9 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:sphinx_2023/screens/home/landing.dart';
 import 'package:sphinx_2023/screens/login/login.dart';
 
+import '../screens/admin/qr_user_details.dart';
+
 class RouteName {
   static const landingScreen = "landingScreen";
   static const loginScreen = "loginScreen";
+  static const qrScannedUser = "qrScannedUserScreen";
 
 }
 
@@ -21,5 +24,8 @@ class Routes {
 
   static Route loginScreen() =>
       cupertinoRoute(RouteName.landingScreen, (ctx) => const LoginScreen());
+
+  static Route qrScannedUser() =>
+      cupertinoRoute(RouteName.qrScannedUser, (ctx) => const QRScannedUserScreen());
 
 }

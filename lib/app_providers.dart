@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sphinx_2023/providers/calendar_data.dart';
+import 'package:sphinx_2023/screens/admin/repo/qr_scan_repo.dart';
+import 'package:sphinx_2023/screens/admin/view_model/qr_scan_vm.dart';
 import 'package:sphinx_2023/screens/calender/view_model/calender_vm.dart';
 import 'package:sphinx_2023/screens/home/view_models/home_vm.dart';
 import 'package:sphinx_2023/screens/login/repo/login_repo.dart';
@@ -39,6 +41,7 @@ class AppProviders extends StatelessWidget {
         ChangeNotifierProvider<CalendarDataProv>(create: (_)=>calendarData),
         ChangeNotifierProvider<HomeVm>(create: (_)=> HomeVm()),
         ChangeNotifierProvider<EventVm>(create: (_)=> EventVm()),
+        ChangeNotifierProvider<QRScanVM>(create: (_)=>QRScanVM(store:store,qrRepo: QRRepo())),
       ],
       child: child,
     );

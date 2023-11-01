@@ -83,6 +83,9 @@ class LoginVm extends ChangeNotifier {
 
       await store.setString("loggedIn", "true");
       await store.setString("id",user.sId.toString());
+      await store.setString("token", user.token.toString());
+
+      print(user.token.toString());
 
       await Navigator.of(NavigationService.navigatorKey.currentContext!,
               rootNavigator: true)
@@ -121,6 +124,7 @@ class LoginVm extends ChangeNotifier {
     setLoading(false);
     store.delete(key: 'id');
     store.delete(key: 'loggedIn');
+    store.delete(key: 'token');
     loginRepo.signOutGoogle();
     await Navigator.of(NavigationService.navigatorKey.currentContext!,
             rootNavigator: true)

@@ -1,16 +1,18 @@
 import 'package:sphinx_2023/models/event.dart';
+import 'package:sphinx_2023/models/pass.dart';
 
 class Profile {
+  String? token;
   String? sId;
   String? password;
   String? email;
   String? type;
-  List<Event>? events = [];
+  List<Events>? events = [];
   bool? isAmbassador;
   bool? isMnit;
   bool? isEmailVerified;
   bool? isMobileNumberVerified;
-  List<String>? passes = [];
+  List<Passes>? passes = [];
   String? createdAt;
   String? updatedAt;
   int? iV;
@@ -18,9 +20,12 @@ class Profile {
   String? uniqueID;
   String? collegeName;
   String? name;
+  bool? enteredMNIT;
 
   Profile(
-      {this.sId,
+      {
+        this.token,
+        this.sId,
         this.password,
         this.email,
         this.type,
@@ -36,24 +41,30 @@ class Profile {
         this.phoneNumber,
         this.uniqueID,
         this.collegeName,
-        this.name});
+        this.name,
+      this.enteredMNIT});
 
   Profile.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     password = json['password'];
     email = json['email'];
     type = json['type'];
-    if (json['coordinators'] != null) {
+    if (json['events'] != null) {
       events = [];
       json['events'].forEach((v) {
-        events!.add(Event.fromJson(v));
+        events!.add(Events.fromJson(v));
       });
     }
     isAmbassador = json['isAmbassador'];
     isMnit = json['isMnit'];
     isEmailVerified = json['isEmailVerified'];
     isMobileNumberVerified = json['isMobileNumberVerified'];
-    passes = json['passes'].cast<String>();
+    if (json['passes'] != null) {
+      passes = <Passes>[];
+      json['passes'].forEach((v) {
+        passes!.add(Passes.fromJson(v));
+      });
+    }
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
     iV = json['__v'];
@@ -61,5 +72,6 @@ class Profile {
     uniqueID = json['uniqueID'];
     collegeName = json['collegeName'];
     name = json['name'];
+    enteredMNIT = json['enteredMnit'];
   }
 }

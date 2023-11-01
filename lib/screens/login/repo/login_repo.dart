@@ -20,6 +20,7 @@ class LoginRepo {
       // then parse the JSON.
       Map<String, dynamic> jsonDat = jsonDecode(response.body);
       Profile user = Profile.fromJson(jsonDat["profile"]);
+      user.token = jsonDat["token"];
       return user;
     } else {
       // If the server did not return a 200 OK response,
