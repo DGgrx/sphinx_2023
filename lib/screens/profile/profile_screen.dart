@@ -23,7 +23,7 @@ class ProfileScreen extends StatelessWidget {
       Profile _user = loginVm.user;
       profileVm.getUserEvents(_user.events!, loginVm.events);
 
-      print(profileVm.userRegisteredEvents);
+      // print(profileVm.userRegisteredEvents);
 
       List<Widget> widgetToShow = [
         ProfileWidget(

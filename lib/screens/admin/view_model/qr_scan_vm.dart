@@ -28,7 +28,7 @@ class QRScanVM extends ChangeNotifier {
     for (var event in events) {
       menuItems.add(event!.name.toString());
     }
-    for(var menu in menuItems) print(menu);
+    // for(var menu in menuItems) print(menu);
     // notifyListeners();
   }
 
@@ -65,18 +65,18 @@ class QRScanVM extends ChangeNotifier {
       user = await qrRepo.getUserByQR(qr: scannedQr);
       passes = user.passes!;
 
-      print(user.events);
+      // print(user.events);
 
-      print(searchEvent.sId);
+      // print(searchEvent.sId);
       int idx = user.events!.indexWhere((element) {
-        print(element);
+        // print(element);
 
         return element.event == searchEvent.sId;});
 
       if(idx ==-1)isUserRegistered = false;
       else isUserRegistered = true;
       //
-      print(dropDownval);
+      // print(dropDownval);
 
       // setRegisteredStatus(user.enteredMNIT!);
       toggleAttendance(user.enteredMNIT!);
@@ -165,13 +165,13 @@ class QRScanVM extends ChangeNotifier {
 
   void setMenuValue(val){
     dropDownval = val;
-    print(dropDownval);
+    // print(dropDownval);
   }
 
   void getSearchEvent(List<Event> allEvents){
      int index = allEvents.indexWhere((element) => element.name == dropDownval);
     searchEvent = allEvents[index];
-    print(searchEvent);
+    // print(searchEvent);
 
   }
 
@@ -186,7 +186,7 @@ class QRScanVM extends ChangeNotifier {
           backgroundColor: Colors.green);
       setMenuItems();
     }catch(e){
-      print(e);
+      // print(e);
       Fluttertoast.showToast(
           msg: e.toString(),
           toastLength: Toast.LENGTH_LONG,

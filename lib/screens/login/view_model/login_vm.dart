@@ -50,11 +50,11 @@ class LoginVm extends ChangeNotifier {
 
     try {
       GoogleSignInAccount googleAuthCred = await loginRepo.signInWithGoogle();
-      print(googleAuthCred.id);
-      print(googleAuthCred.email);
+      // print(googleAuthCred.id);
+      // print(googleAuthCred.email);
       setLoading(true);
       user = await loginRepo.login(email: googleAuthCred.email, password: googleAuthCred.id);
-      print(user.email.toString());
+      // print(user.email.toString());
       setLoggedIn(true);
       events = await splashRepo.fetchEvents();
       await Navigator.of(NavigationService.navigatorKey.currentContext!,
@@ -85,7 +85,7 @@ class LoginVm extends ChangeNotifier {
       await store.setString("id",user.sId.toString());
       await store.setString("token", user.token.toString());
 
-      print(user.token.toString());
+      // print(user.token.toString());
 
       await Navigator.of(NavigationService.navigatorKey.currentContext!,
               rootNavigator: true)

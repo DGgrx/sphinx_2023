@@ -6,7 +6,7 @@ class HomeVm extends ChangeNotifier {
 
   List<Event> events = [];
   void printList(List<Event> val){
-    print(val);
+    // print(val);
   }
 
   static const Map<String,String> categoryMap = {

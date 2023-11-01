@@ -22,7 +22,7 @@ class QRScannerPage extends StatelessWidget {
       List<Event> allEvents = loginVm.events;
       // qrVm.dropDownval = ;
       qrVm.setMenuValue(list.first);
-      print(qrVm.searchEvent);
+      // print(qrVm.searchEvent);
 
       return qrVm.isLoading
           ? LoadingScreen()
@@ -106,7 +106,7 @@ class QRScannerPage extends StatelessWidget {
                         color: Colors.transparent,
                         child: InkWell(
                           onTap: () {
-                            print("QR Scanning Started");
+                            // print("QR Scanning Started");
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => QRScanScreen()));
                           },

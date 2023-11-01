@@ -64,7 +64,7 @@ class QRScanScreen extends StatelessWidget {
               Barcode barcode = capture.barcodes.last;
               // final Uint8List? image = capture.image;
               // for (final barcode in barcodes) {
-                print('Barcode found! ${barcode.displayValue}');
+              //   print('Barcode found! ${barcode.displayValue}');
               // }
               qrVm.getUniqID(barcode.displayValue.toString());
               _controller.dispose();
